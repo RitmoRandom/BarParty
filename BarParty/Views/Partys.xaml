@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BarParty.Views.Partys"
+             Title="Partys">
+    <ScrollView>
+        <StackLayout>
+            <ListView x:Name="ListaI" FlexLayout.Grow="1" HasUnevenRows="True" ItemSelected="VerItem" MaximumHeightRequest="450" RowHeight="80" Margin="0,20,0,0" SeparatorVisibility="Default" SeparatorColor="Gray">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Spacing="10" Margin="10" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                   
+                                    <Label Text="{Binding Name}"  VerticalOptions="Center" FontSize="20" HorizontalOptions="Center" WidthRequest="200" Margin="40,0,0,0"/>
+                                    <DatePicker Format="d" Date="{Binding FechaEvento}" TextColor="Black" VerticalOptions="Center" FontSize="20" HorizontalOptions="Center" WidthRequest="200" Margin="0,0,0,0" IsEnabled="False"/>
+                                    
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <ImageButton Margin="0,0,0,15" VerticalOptions="End" HorizontalOptions="End" Source="add.png" Clicked="add" HeightRequest="80" WidthRequest="100"/>
+        </StackLayout>
+
+    </ScrollView>
+</ContentPage>

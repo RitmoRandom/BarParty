@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BarParty.Views.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center">
+            <VerticalStackLayout>
+                <Entry x:Name="nombre" Placeholder="Nombre"/>
+                <Button x:Name="guardar" Text="Guardar" Clicked="anva"/>
+            </VerticalStackLayout>
+            <ListView x:Name="Lista" FlexLayout.Grow="1" HasUnevenRows="True" ItemTapped="VerItem">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <VerticalStackLayout Padding="5">
+                                <Label Text="{Binding Nombre}" FontSize="17" FontAttributes="Bold"/>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="0" Text="{Binding mail}"/>
+                                    <Label Grid.Column="2" Text="{Binding Phone}" FontAttributes="Bold"/>
+                                </Grid>
+                            </VerticalStackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

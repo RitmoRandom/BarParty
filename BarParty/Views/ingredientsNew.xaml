@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BarParty.Views.ingredientsNew"
+             Title="Ingrediente">
+    <ScrollView>
+        <VerticalStackLayout>
+            <StackLayout>
+                <Button x:Name="guardar" Text="Guardar" Clicked="Save" VerticalOptions="Start" HorizontalOptions="End" Margin="0,5,10,20" FontSize="20"/>
+                <Label HorizontalOptions="Center" FontSize="20" FontAttributes="Bold">Ingrediente:</Label>
+                <Entry x:Name="Nombre" Placeholder="Nombre"  HorizontalOptions="CenterAndExpand" FontSize="20" HorizontalTextAlignment="Center" WidthRequest="200" Margin="0,0,0,20"/>
+                <Label HorizontalOptions="Center" FontSize="20" FontAttributes="Bold">Tipo:</Label>
+                <Picker FontSize="20" x:Name="Tipo" Title="Selecciona Tipo" SelectedIndexChanged="Picker_Tipo"  HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" WidthRequest="200" Margin="0,0,0,20"/>
+                <Label HorizontalOptions="Center" FontSize="20" FontAttributes="Bold">Unidad:</Label>
+                <Picker FontSize="20" x:Name="Unidad" Title="Selecciona Unidad" SelectedIndexChanged="Picker_Unidad"  HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" WidthRequest="200"/>
+
+            </StackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

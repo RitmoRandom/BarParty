@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="BarParty.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:BarParty"
+    Shell.FlyoutBehavior="Disabled">
+    <TabBar>
+        <ShellContent
+        Title="Coctails"
+            Icon="coctail.png"
+        ContentTemplate="{DataTemplate local:Views.Coctails}"
+        Route="Views.Coctails" />
+        <ShellContent
+        Title="Parties"
+            Icon="basket.png"
+        ContentTemplate="{DataTemplate local:Views.Partys}"
+        Route="Views.Partys" />
+        <ShellContent
+        Title="Data"
+            Icon="config.png"
+        ContentTemplate="{DataTemplate local:Views.Configur}"
+        Route="Views.Configur" />
+    </TabBar>
+        
+
+</Shell>

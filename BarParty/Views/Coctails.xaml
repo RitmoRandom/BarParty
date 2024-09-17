@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BarParty.Views.Coctails"
+             Title="Coctails">
+    <ScrollView>
+        <StackLayout>
+            <HorizontalStackLayout Margin="0,0,0,25" HeightRequest="100">
+                <!--filtros -->
+                <Grid VerticalOptions="Start" HorizontalOptions="End">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <!-- ingre -->
+                    <StackLayout Grid.Column="0" Grid.Row="0" Orientation="Horizontal" Margin="35,5,0,5">
+                        <Button Text="Ingredientes" FontSize="15" Clicked="ingre" HorizontalOptions="Start" WidthRequest="120" Margin="0,0,30,0"/>
+                        <Button Text="Tags" FontSize="15" Clicked="tager" HorizontalOptions="Start"/>
+                    </StackLayout>
+
+                    <!-- tags -->
+                    <StackLayout Grid.Column="0" Grid.Row="1" Orientation="Vertical" Margin="5,5,0,5">
+                        <Editor x:Name="listaFil" Margin="0,0,0,0" IsReadOnly="True"
+                                FontSize="15" Placeholder="..." HorizontalTextAlignment="Center" VerticalTextAlignment="Start" CharacterSpacing="0"
+                                HorizontalOptions="Center" VerticalOptions="Start"
+                                WidthRequest="300" HeightRequest="80"
+                                />
+                    </StackLayout>
+
+                    <!-- clean -->
+                    <StackLayout Grid.Column="1" Grid.Row="0" Orientation="Vertical" Margin="10,5,0,0">
+                        <ImageButton x:Name="btnclean" Source="erase.png" Clicked="limp" HeightRequest="60" HorizontalOptions="End" WidthRequest="70"/>
+                    </StackLayout>
+                </Grid>
+            </HorizontalStackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Nombre:" VerticalOptions="Center" HorizontalOptions="Start" FontSize="16" WidthRequest="70" HeightRequest="20" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" Margin="0,0,5,0"/>
+                <Entry  x:Name="filt" TextChanged="Entry_TextChanged" Placeholder="Nombre Ingrediente..." VerticalOptions="Start" HorizontalOptions="Start" FontSize="16" WidthRequest="200" HeightRequest="40" HorizontalTextAlignment="Start" VerticalTextAlignment="Start"/>
+            </StackLayout>
+            <ListView x:Name="ListaI" FlexLayout.Grow="1" HasUnevenRows="True" ItemSelected="VerItem" MaximumHeightRequest="430" RowHeight="80" Margin="0,10,0,0">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Spacing="10" Margin="10" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                    <Image Source="{Binding Photo}"  HorizontalOptions="Start" WidthRequest="80" HeightRequest="100"/>
+                                    <Label Text="{Binding Name}"  VerticalOptions="Start" FontSize="20" HorizontalOptions="Center" WidthRequest="200" Margin="15,0,0,0"/>
+                                    <Label Text="{Binding Calif, StringFormat='{0}★'}"  VerticalOptions="Start" FontSize="20" HorizontalOptions="End" WidthRequest="50" Margin="10,0,0,0"/>
+                                    
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <ImageButton Margin="0,0,0,15" VerticalOptions="End" HorizontalOptions="End" Source="add.png" Clicked="add" HeightRequest="80" WidthRequest="100"/>
+        </StackLayout>
+
+    </ScrollView>
+</ContentPage>

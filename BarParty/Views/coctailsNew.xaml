@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BarParty.Views.coctailsNew"
+             Title="Coctel">
+    <ScrollView>
+        <VerticalStackLayout>
+            <StackLayout>
+
+                <Label HorizontalOptions="Center" FontSize="16" FontAttributes="Bold">Coctel:</Label>
+                <Entry x:Name="Nombre" Placeholder="Nombre"  HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" WidthRequest="200" Margin="0,0,0,20" FontSize="18"/>
+                <Image x:Name="imageView" HorizontalOptions="Center" WidthRequest="110" HeightRequest="180" Source="unavailable.png"/>
+                <Button x:Name="im" Clicked="OnSelectImageClicked" Margin="0,0,0,10" Text="Cargar Imagen" FontSize="16" HeightRequest="45" WidthRequest="200" BackgroundColor="Transparent" TextColor="BlueViolet"/>
+                
+                <Label HorizontalOptions="Center" FontSize="16" FontAttributes="Bold">Calificación:</Label>
+                <StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="0">
+                        <Button x:Name="a1" Text="☆" Clicked="OnStara" BackgroundColor="Transparent" FontSize="25" TextColor="Black"/>
+                        <Button x:Name="a2" Text="☆" Clicked="OnStarb" BackgroundColor="Transparent" FontSize="25" TextColor="Black"/>
+                        <Button x:Name="a3" Text="☆" Clicked="OnStarc" BackgroundColor="Transparent" FontSize="25" TextColor="Black"/>
+                        <Button x:Name="a4" Text="☆" Clicked="OnStard" BackgroundColor="Transparent" FontSize="25" TextColor="Black"/>
+                        <Button x:Name="a5" Text="☆" Clicked="OnStare" BackgroundColor="Transparent" FontSize="25" TextColor="Black"/>
+                    </StackLayout>
+                </StackLayout>
+                <Grid VerticalOptions="Start" HorizontalOptions="Center" WidthRequest="390" Margin="0,5,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- col 1 -->
+                    <StackLayout Grid.Column="0" Orientation="Vertical">
+                        <Label HorizontalOptions="Center" FontSize="16" FontAttributes="Bold">Vaso:</Label>
+                        <Picker x:Name="Glass" Title="Qué vaso lleva?" FontSize="18" SelectedIndexChanged="Picker_glass"  HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" WidthRequest="200" Margin="0,0,0,20"/>
+                    </StackLayout>
+
+                    <!--col 2 -->
+                    <StackLayout Grid.Column="1" Orientation="Vertical">
+                        <Label HorizontalOptions="Center" FontSize="16" FontAttributes="Bold">Metodo:</Label>
+                        <Picker x:Name="Meth" Title="Qué metodo se usa?" FontSize="18" SelectedIndexChanged="Picker_meth"  HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" WidthRequest="200" Margin="0,0,0,20"/>
+                    </StackLayout>
+                </Grid>
+
+
+
+
+                <Button x:Name="Ing" Text="Editar Ingredientes" FontSize="16" Clicked="addI" HorizontalOptions="End" Margin="0,5,10,5" TextColor="BlueViolet" BackgroundColor="Transparent" FontAttributes="Bold,Italic"/>
+                <HorizontalStackLayout BackgroundColor="LawnGreen" HorizontalOptions="Fill">
+                    <Label  x:Name="ingText" Text="Ingred." VerticalOptions="CenterAndExpand" FontSize="16" WidthRequest="100" HeightRequest="40" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    <Label  x:Name="cantText" Text="Cant." VerticalOptions="Center" FontSize="16" WidthRequest="50" HeightRequest="40" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    <Label  x:Name="uniText" Text="Uni." VerticalOptions="Center" FontSize="16" WidthRequest="70" HeightRequest="40" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    <Label  x:Name="noteText" Text="Preferencia" VerticalOptions="Center" HorizontalOptions="End" FontSize="16" WidthRequest="130" HeightRequest="40" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                </HorizontalStackLayout>
+                    <ListView x:Name="ListaIngre" FlexLayout.Grow="1" HasUnevenRows="True" RowHeight="20" SelectionMode="None" HeightRequest="200">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout  Spacing="10" Margin="0" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                    <StackLayout  Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                        <Label  x:Name="ingText" Text="{Binding NameIng}" VerticalOptions="CenterAndExpand" FontSize="15" WidthRequest="100" HeightRequest="40" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                        <Label  x:Name="cantText" Text="{Binding Cant}" VerticalOptions="Center" FontSize="15" WidthRequest="50" HeightRequest="40" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                        <Label  x:Name="uniText" Text="{Binding Unit}" VerticalOptions="Center" FontSize="15" WidthRequest="70" HeightRequest="40" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                        <Label  x:Name="noteText" Text="{Binding Note}" VerticalOptions="Center" FontSize="15" WidthRequest="130" HeightRequest="40" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Grid VerticalOptions="Start" HorizontalOptions="Center" WidthRequest="390" Margin="0,5,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- col 1 -->
+                    <StackLayout Grid.Column="0" Orientation="Vertical">
+                        <Label HorizontalOptions="Center" HeightRequest="50" VerticalTextAlignment="Center" VerticalOptions="Center" FontSize="16" FontAttributes="Bold">Tags:</Label>
+                    </StackLayout>
+                    <!--col 3 -->
+                    <StackLayout Grid.Column="2" Orientation="Vertical">
+                        <Button x:Name="mastag" Text="Editar Tags" FontSize="16" Clicked="addT" Margin="0,5,10,5" TextColor="BlueViolet" BackgroundColor="Transparent" FontAttributes="Bold,Italic"/>
+                    </StackLayout>
+                </Grid>
+                <Editor x:Name="tagsSelect"
+        Placeholder="..."
+                        HorizontalOptions="Start"
+                        HorizontalTextAlignment="Start" WidthRequest="350" Margin="25,0,10,0"
+                        VerticalOptions="Start" VerticalTextAlignment="Start"
+        HeightRequest="65" CharacterSpacing="0" FontSize="15" IsReadOnly="True"/>
+                <Label HorizontalOptions="Center" FontSize="15" FontAttributes="Bold" Margin="0,20,0,0">Preparación:</Label>
+
+                <Editor x:Name="Prep"
+        Placeholder="Detalles..."
+                        HorizontalOptions="Center"
+                        HorizontalTextAlignment="Start" WidthRequest="300" Margin="0,0,0,20"
+                        VerticalOptions="Start" VerticalTextAlignment="Start"
+        HeightRequest="250"
+        TextChanged="OnEditorTextChanged"
+         CharacterSpacing="1"/>
+                <Label HorizontalOptions="Center" FontSize="16" FontAttributes="Bold">Note:</Label>
+                <Entry x:Name="Note" Placeholder="Detalles adicionales" FontSize="18"  HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" WidthRequest="200" Margin="0,0,0,20"/>
+            </StackLayout>
+            <Button x:Name="guardar" Text="Guardar" Clicked="Save" VerticalOptions="Start" HorizontalOptions="CenterAndExpand" Margin="0,5,10,20" FontSize="20"/>
+            <Label TextColor="Transparent" BackgroundColor="Transparent" HorizontalOptions="Center" FontSize="15" FontAttributes="Bold">***********</Label>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

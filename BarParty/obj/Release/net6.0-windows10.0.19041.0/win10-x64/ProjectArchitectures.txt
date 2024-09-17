@@ -1,0 +1,1 @@
+C:\Users\RR\Documents\Visual Studio 2022\Proyectos\BarParty\BarParty\BarParty.csproj;x64

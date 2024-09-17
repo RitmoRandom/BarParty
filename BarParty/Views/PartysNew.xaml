@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BarParty.Views.PartysNew"
+             Title="Fiesta">
+    <ScrollView>
+        <VerticalStackLayout>
+            <StackLayout>
+
+                <Label HorizontalOptions="Center" FontSize="17" FontAttributes="Bold">Titulo:</Label>
+                <Entry x:Name="Nombre" Placeholder="Nombre" FontSize="17"  HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" WidthRequest="200" Margin="0,0,0,10"/>
+                <Grid VerticalOptions="Start" HorizontalOptions="Center" WidthRequest="375" Margin="0,0,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- col 1 -->
+                    <StackLayout Grid.Column="0" Orientation="Horizontal" HorizontalOptions="End">
+                        <Label HorizontalOptions="Center" FontSize="17" FontAttributes="Bold" VerticalOptions="Center">Fecha:</Label>
+                    </StackLayout>
+
+                    <!--col 2 -->
+                    <StackLayout Grid.Column="1" Orientation="Horizontal" HorizontalOptions="Start">
+                        <DatePicker x:Name="date" Format="d" FontSize="17" HorizontalOptions="Start" Margin="10,0,0,0"/>
+                    </StackLayout>
+                </Grid>
+
+
+                <Grid VerticalOptions="Start" HorizontalOptions="Center" WidthRequest="375" HeightRequest="50" Margin="0,5,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- col 1 -->
+                    <StackLayout Grid.Column="0" Orientation="Horizontal" HorizontalOptions="Start">
+                        <Label HorizontalOptions="Start" FontSize="17" FontAttributes="Bold" HeightRequest="40" VerticalTextAlignment="Center"># Personas:</Label>
+                        <Entry x:Name="people" Placeholder="1,2..." FontSize="17" Keyboard="Numeric" VerticalOptions="Center" VerticalTextAlignment="Center" HeightRequest="40" HorizontalTextAlignment="Start" WidthRequest="70" Margin="10,0,0,0"/>
+                    </StackLayout>
+
+                    <!--col 2 -->
+                    <StackLayout Grid.Column="1" Orientation="Horizontal" HorizontalOptions="Start">
+                        <Label HorizontalOptions="Start" FontSize="17" FontAttributes="Bold" HeightRequest="40" VerticalTextAlignment="Center"># Tragos:</Label>
+                        <Entry x:Name="tragos" Placeholder="1,2..." FontSize="17" Keyboard="Numeric" VerticalOptions="Center" HeightRequest="40" HorizontalTextAlignment="Start" WidthRequest="70" Margin="10,0,0,0"/>
+                    </StackLayout>
+                </Grid>
+
+                <Button x:Name="Ing" Text="Agregar cocteles" Clicked="addCocteles" HorizontalOptions="End" Margin="0,5,10,5" TextColor="BlueViolet" FontSize="16" BackgroundColor="Transparent" FontAttributes="Bold,Italic"/>
+                <HorizontalStackLayout BackgroundColor="LawnGreen" HorizontalOptions="Fill">
+                    <Label  x:Name="CoctelText" Text="Cocteles" VerticalOptions="CenterAndExpand" FontSize="17" WidthRequest="100" HeightRequest="40" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                </HorizontalStackLayout>
+                <ListView x:Name="ListaIngre" FlexLayout.Grow="1" HasUnevenRows="True" RowHeight="20" SelectionMode="None" HeightRequest="350">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout  Spacing="10" Margin="5" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                    
+                                    <StackLayout  Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                        <Image Source="{Binding Photo}"  HorizontalOptions="Start" WidthRequest="80" HeightRequest="100"/>
+                                        <Label  x:Name="ingText" Text="{Binding Name}" VerticalOptions="CenterAndExpand" FontSize="14" WidthRequest="100" HeightRequest="40" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                    </StackLayout>
+                                    <ImageButton x:Name="quit" Clicked="quitar" Margin="0,0,0,0" Source="minus.png" HeightRequest="40" WidthRequest="40"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <Button x:Name="guardar" Text="Guardar" Clicked="Save" FontSize="20" VerticalOptions="Start" HorizontalOptions="CenterAndExpand" Margin="0,5,10,20"/>
+            <Label TextColor="Transparent" BackgroundColor="Transparent" HorizontalOptions="Center" FontSize="15" FontAttributes="Bold">***********</Label>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

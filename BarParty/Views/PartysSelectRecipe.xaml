@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BarParty.Views.PartysSelectRecipe"
+             Title="Agregar cocteles a la fiesta">
+    <ScrollView>
+        <StackLayout>
+            <HorizontalStackLayout Margin="0,0,0,15" HeightRequest="85">
+                <Grid VerticalOptions="Start">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- done -->
+                    <StackLayout Grid.Column="0" Orientation="Vertical">
+                        <Grid VerticalOptions="Start">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <StackLayout Grid.Column="0" Orientation="Vertical">
+                                <Button x:Name="Ad" Clicked="add" HorizontalOptions="Start" Margin="10,10,20,0" FontSize="19" Text="DONE" HeightRequest="65" WidthRequest="85" VerticalOptions="Center"/>
+                            </StackLayout>
+                        </Grid>
+                    </StackLayout>
+
+                    <!--filtros -->
+                    <StackLayout Grid.Column="1" Orientation="Vertical" HorizontalOptions="End">
+                        <Grid VerticalOptions="Start" HorizontalOptions="End">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+
+                            <!-- nombre ingre -->
+                            <StackLayout Grid.Column="0" Grid.Row="0" Orientation="Horizontal" Margin="0,0,10,0">
+                                <Label Text="Nombre:" VerticalOptions="Center" HorizontalOptions="Start" FontSize="16" WidthRequest="70" HeightRequest="20" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" Margin="0,0,5,0"/>
+                                <Entry  x:Name="filt" TextChanged="Entry_TextChanged" Placeholder="Nombre Ingrediente..." VerticalOptions="Start" HorizontalOptions="Start" FontSize="16" WidthRequest="200" HeightRequest="40" HorizontalTextAlignment="Start" VerticalTextAlignment="Start"/>
+                            </StackLayout>
+                        </Grid>
+                    </StackLayout>
+                </Grid>
+            </HorizontalStackLayout>
+            <!-- lista de Cocteles -->
+            <StackLayout HeightRequest="400">
+                <ListView x:Name="ListaI" FlexLayout.Grow="1" HasUnevenRows="True" ItemSelected="VerItem" HeightRequest="400" RowHeight="80">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Spacing="10" Margin="10" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                    <StackLayout Orientation="Vertical">
+                                        <Image Source="{Binding Photo}"  HorizontalOptions="Start" WidthRequest="80" HeightRequest="100"/>
+                                        <Label Text="{Binding Name}"  VerticalOptions="Start" FontSize="17" />
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <StackLayout HeightRequest="120">
+                <ScrollView>
+                    <Editor x:Name="listt" TextColor="Tan" Margin="0,0,0,0"
+        Placeholder="..sadsad." HeightRequest="120" WidthRequest="350" HorizontalOptions="Center"
+                        VerticalOptions="Center" VerticalTextAlignment="Start"
+         CharacterSpacing="0" FontSize="15" IsReadOnly="True"/>
+                </ScrollView>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

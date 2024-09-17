@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BarParty.Views.PartysView"
+             Title="Party">
+    <ScrollView>
+        <VerticalStackLayout>
+            <StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="0,5,0,0">
+                    <Label x:Name="Nombre" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" VerticalTextAlignment="Center" Margin="0,0,0,0" HorizontalTextAlignment="Center" WidthRequest="100" FontSize="17" FontAttributes="Bold">Coctel:</Label>
+                    <Label x:Name="fecha" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" VerticalTextAlignment="Center" Margin="0,0,0,0" HorizontalTextAlignment="Center" WidthRequest="100" FontSize="17" FontAttributes="Bold">Coctel:</Label>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="0,5,0,0">
+                    <Label x:Name="personas" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" VerticalTextAlignment="Center" Margin="0,0,0,0" HorizontalTextAlignment="Center" WidthRequest="100" FontSize="17" FontAttributes="Bold">Coctel:</Label>
+                    <Label x:Name="tragos" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" VerticalTextAlignment="Center" Margin="0,0,0,0" HorizontalTextAlignment="Center" WidthRequest="100" FontSize="17" FontAttributes="Bold">Coctel:</Label>
+                </StackLayout>
+                
+                <HorizontalStackLayout BackgroundColor="LawnGreen" HorizontalOptions="Fill" Margin="0,20,0,0">
+                    <Label  x:Name="ingText" Text="Cocteles" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" FontAttributes="Bold" FontSize="17" WidthRequest="100" HeightRequest="40" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                </HorizontalStackLayout>
+                <ListView x:Name="ListaIngre" FlexLayout.Grow="1" HasUnevenRows="True" RowHeight="20" ItemSelected="VerItem" HeightRequest="200">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout  Spacing="10" Margin="0" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                    <StackLayout  Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                        <Image Source="{Binding Photo}"  HorizontalOptions="Start" WidthRequest="80" HeightRequest="100"/>
+                                        <Label  x:Name="ingText" Text="{Binding Name}" VerticalOptions="CenterAndExpand" FontSize="17" WidthRequest="100" HeightRequest="40" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Label  x:Name="Comp" Text="Listado de compras" VerticalOptions="Center" FontSize="17" FontAttributes="Bold" WidthRequest="200" Margin="0,0,0,5" HeightRequest="40" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                <ScrollView>
+                    <Editor x:Name="ListaCompras" Margin="0,0,0,20" IsReadOnly="True"
+        Placeholder="..." HorizontalTextAlignment="Center" VerticalTextAlignment="Start" CharacterSpacing="0" FontSize="15"
+                        HorizontalOptions="Center" VerticalOptions="Start"
+                         WidthRequest="390" HeightRequest="250"/>
+                </ScrollView>
+            </StackLayout>
+            <Button x:Name="Edi" HeightRequest="50" WidthRequest="150" Text="Editar" FontSize="20" Clicked="Editar" Margin="0,10,0,5"/>
+            <Button x:Name="Elim" HeightRequest="50" WidthRequest="150" Text="Eliminar" Clicked="Eliminar" FontSize="20" Margin="0,0,0,0" BackgroundColor="Red"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
